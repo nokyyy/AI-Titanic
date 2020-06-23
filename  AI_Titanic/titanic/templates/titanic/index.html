@@ -1,0 +1,56 @@
+{% extends 'titanic/base.html' %}
+{% load static %}
+
+{% block content %}
+<div class="pricing-header px-3 py-3 pt-md-5 pb-md-4 mx-auto text-center">
+    <h1 class="display-4">AI Titanic判定</h1>
+    <p class="lead">RMS Titanic was a British passenger liner operated by the White Star Line 
+        that sank in the North Atlantic Ocean in the early morning hours of 15 April 1912, 
+        after striking an iceberg during her maiden voyage <br>from Southampton to New York City.</p>
+</div>
+
+<div class="container" style='margin-top: 30px;'>
+    <form action="{% url 'titanic:result' %}" method="POST">
+        <div >{% csrf_token %}</div>
+
+    <div class="card-deck mb-3 text-center">
+      <div class="card mb-4 shadow-sm">
+        <div class="card-header">
+          <h4 class="my-0 font-weight-normal">Gender</h4>
+        </div>
+        <div class="card-body">
+          
+           <img src="{% static 'img/man.jpeg' %}" id='gender' class="image mb-4 rounded">
+            {{ form.gender }}
+        </div>
+      </div>
+      <div class="card mb-4 shadow-sm">
+        <div class="card-header">
+          <h4 class="my-0 font-weight-normal">Class</h4>
+        </div>
+        <div class="card-body">
+        <img src="{% static 'img/thirdclass.jpeg' %}" id='grade' class='image mb-4 rounded'>
+          {{ form.grade }}
+        </div>
+      </div>
+      <div class="card mb-4 shadow-sm">
+        <div class="card-header">
+          <h4 class="my-0 font-weight-normal">Fare</h4>
+        </div>
+        <div class="card-body">
+        <h4>US-dollar</h4>
+        <img src="{% static 'img/dollar.jpg' %}" class='image-width rounded'>
+        <p style="margin-bottom: 5px;">(range)</p>
+        <p class="fare disNone">$25〜$512</p>
+        <p class="fare disNone">$0〜$73.5</p>
+        <p class="fare disNone">$0〜$69.55</p>
+          {{ form.fare }}
+        </div>
+      </div>
+    </div>
+    <button id='next' type="submit" onClick='return checkSubmit();' class="btn btn-lg btn-block btn-outline-primary">判定する</button>      
+    </form>
+</div>
+<script type='text/javascript' src="{% static 'js/images.js' %}"></script>
+
+{% endblock content %}

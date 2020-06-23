@@ -1,0 +1,12 @@
+.result{
+    width: 18rem;
+    margin: 50px auto 0 auto;
+}
+#death{
+    color: rgb(255, 0, 0);
+    font-weight: bold;
+}
+#alive{
+    color: rgb(144, 224, 24);
+    font-weight: bold;
+}
