@@ -1,6 +1,6 @@
 # AI-Titanic
 
-http://18.191.177.9/
+http://3.16.28.22/
 <br>
 AI TitanicのサイトIPアドレスです 
  
